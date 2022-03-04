@@ -53,6 +53,9 @@ def ddos_new_site(url, proxy):
         start_time = time.time()
         resp = asyncio.run(ddos_site.fetch_async(ntimes))
         print(f'Valid requests: {resp.count(True)}/{len(resp)} for site: {url} during {time.time() - start_time} seconds')
+        if resp.count(True) == 0:
+            print("exception")
+            raise Exception("No answer from server")
         
 if __name__ == '__main__':
     # asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
